@@ -5,7 +5,7 @@
 
   const db = createClient(import.meta.env.VITE_PSQL_URL, import.meta.env.VITE_PSQL_KEY)
   const CDN = import.meta.env.VITE_CDN
-  const buckets = ['emoji', 'stickers']
+  const buckets = ['emoji_v2', 'stickers_v2']
   const library = writable(new Array())
   let selected_bucket = new String()
   const gallery = writable(new Array())
@@ -46,7 +46,7 @@
 {#if !$library.length && !selected_bucket.length}
   <main class="Home">
       {#each Object.keys($library) as bucket}
-        <button on:click={() => selected_bucket = bucket}>{clean_string(bucket)}</button>
+        <button on:click={() => selected_bucket = bucket}>{clean_string(bucket.slice(0,-3))}</button>
       {/each}
   </main>
 {:else if !$gallery.length}
@@ -62,7 +62,7 @@
   <main class="List Gallery">
     <button id="Back_Button" on:click={() => gallery.set(new Array())}>Back</button>
     {#each $gallery as image}
-      <img src={image} on:click={() => hdl_image(image)} class={selected_bucket} />
+      <img src={image} on:click={() => hdl_image(image)} class={selected_bucket.slice(0,-3)} />
     {/each}
   </main>
 {/if}
