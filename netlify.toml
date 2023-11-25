@@ -4,8 +4,13 @@
   functions = "netlify/functions"
 
 [[redirects]]
-  from = "/cdn/*"
-  to = "/.netlify/functions/img/:splat"
+  from = "/emoji/*"
+  to = "/.netlify/functions/get_emoji/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/sticker/*"
+  to = "/.netlify/functions/get_sticker/:splat"
   status = 200
   
 [[redirects]]

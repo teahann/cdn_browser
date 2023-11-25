@@ -1,4 +1,4 @@
-module github.com/someone/img
+module github.com/someone/get_sticker
 
 go 1.19
 

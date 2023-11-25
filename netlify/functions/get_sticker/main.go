@@ -12,10 +12,10 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-const baseURL = "https://dchqsxvlazultvsphmau.supabase.co/storage/v1/object/public/"
+const baseURL = "https://dchqsxvlazultvsphmau.supabase.co/storage/v1/object/public/stickers_v2/"
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	imagePath := strings.TrimPrefix(request.Path, "/cdn/")
+	imagePath := strings.TrimPrefix(request.Path, "/sticker/")
 	imageURL := baseURL + imagePath
 
 	// Fetch the image
