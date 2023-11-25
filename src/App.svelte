@@ -1,4 +1,4 @@
-<script>
+<script lang=ts>
   import { onMount } from 'svelte'
   import { writable } from 'svelte/store'
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
@@ -28,13 +28,17 @@
 
   const hdl_image = async (url) => {
     try {
-      await navigator.clipboard.writeText(short_cdn(url))
+      await navigator.clipboard.writeText(make_link(url))
     } catch (error) {
-      window.open(short_cdn(url), '_blank')
+      window.open(make_link(url), '_blank')
     }
   }
   
-  const short_cdn = (url) => `${CDN_SHORT}${url.slice(66)}`
+  const make_link = (url) => {
+    let start_url = url.slice(66).split('/')[0]
+    let end_url = url.slice(66).split('/').slice(1).join('/')
+    return start_url === 'emoji_v2' ? `${CDN_SHORT}emoji/${end_url}` : `${CDN_SHORT}sticker/${end_url}`
+  }
 
   const clean_string = (str) => {
     return str
