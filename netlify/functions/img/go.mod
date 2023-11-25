@@ -1,4 +1,4 @@
-module github.com/someone/get_image
+module github.com/someone/img
 
 go 1.19
 
