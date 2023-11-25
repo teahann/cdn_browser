@@ -5,6 +5,7 @@
 
   const db = createClient(import.meta.env.VITE_PSQL_URL, import.meta.env.VITE_PSQL_KEY)
   const CDN = import.meta.env.VITE_CDN
+  const CDN_SHORT = import.meta.env.VITE_CDN_SHORT
   const buckets = ['emoji_v2', 'stickers_v2']
   const library = writable(new Array())
   let selected_bucket = new String()
@@ -27,11 +28,13 @@
 
   const hdl_image = async (url) => {
     try {
-      await navigator.clipboard.writeText(url)
+      await navigator.clipboard.writeText(short_cdn(url))
     } catch (error) {
-      window.open(url, '_blank')
+      window.open(short_cdn(url), '_blank')
     }
   }
+  
+  const short_cdn = (url) => `${CDN_SHORT}${url.slice(66)}`
 
   const clean_string = (str) => {
     return str
