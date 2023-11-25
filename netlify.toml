@@ -4,12 +4,6 @@
   functions = "netlify/functions"
 
 [[redirects]]
-  from = "/api/image/*"
-  to = "/.netlify/functions/image_proxy/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
