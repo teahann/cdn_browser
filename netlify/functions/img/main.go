@@ -15,7 +15,7 @@ import (
 const baseURL = "https://dchqsxvlazultvsphmau.supabase.co/storage/v1/object/public/"
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	imagePath := strings.TrimPrefix(request.Path, "/.netlify/functions/get_image/")
+	imagePath := strings.TrimPrefix(request.Path, "/.netlify/functions/img/")
 	imageURL := baseURL + imagePath
 
 	// Fetch the image

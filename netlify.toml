@@ -4,6 +4,11 @@
   functions = "netlify/functions"
 
 [[redirects]]
+  from = "/cdn/*"
+  to = "/.netlify/functions/img/:splat"
+  status = 200
+  
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
