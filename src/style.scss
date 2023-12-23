@@ -87,5 +87,25 @@ button {
       }
     }
   } // Gallery
+}
 
+.Modal {
+  display: grid;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgba(80,81,83,0.8);
+  text-shadow: 0 0 2px rgb(20,20,20);
+  box-shadow: rgba(60,64,67,0.3) 0px 1px 2px 0px, rgba(60,64,67,0.15) 0px 1px 3px 1px;
+  z-index: 5;
+
+  code {
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: 1.15rem;
+    &.Filename { color: rgb(232,232,232); }
+    &.Message { color: rgb(192,192,192); }
+  }
 }
